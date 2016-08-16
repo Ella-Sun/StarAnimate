@@ -64,6 +64,7 @@ static const CGFloat kAnimateTime = 2.0f;
 }
 
 - (void)animateWithImageView {
+    /*
     CABasicAnimation *scaleAnima = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
     scaleAnima.toValue = [NSNumber numberWithFloat:1.5f];
     
@@ -72,9 +73,35 @@ static const CGFloat kAnimateTime = 2.0f;
     
     CAAnimationGroup *groupAnima = [CAAnimationGroup animation];
     groupAnima.animations = @[scaleAnima,alphaAnima];
+    groupAnima.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     groupAnima.duration = kAnimateTime;
     
     [_imageView.layer addAnimation:groupAnima forKey:@"msgLabelAnimate"];
+     */
+    
+    [self animateWithKeyFrameWithView:_imageView];
+}
+
+- (void)animateWithKeyFrameWithView:(UIView *)view {
+    
+    self.transform = CGAffineTransformIdentity;
+    [UIView animateKeyframesWithDuration:kAnimateTime delay:0 options:0 animations: ^{
+        
+        [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:2 / 3.0 animations: ^{
+            //变大
+            view.transform = CGAffineTransformMakeScale(1.5, 1.5);
+        }];
+        
+//        [UIView addKeyframeWithRelativeStartTime:1/3.0 relativeDuration:1/3.0 animations: ^{
+//            //变小
+//            view.transform = CGAffineTransformMakeScale(0.8, 0.8);
+//        }];
+        
+        [UIView addKeyframeWithRelativeStartTime:2/3.0 relativeDuration:1/3.0 animations: ^{
+            //恢复正常
+            view.transform = CGAffineTransformMakeScale(1.0, 1.0);
+        }];
+    } completion:nil];
 }
 
 - (void)animateWithLabel {
