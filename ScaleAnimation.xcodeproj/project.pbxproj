@@ -15,6 +15,9 @@
 		44085EE11D62AAEE00FA71AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44085EDF1D62AAEE00FA71AA /* LaunchScreen.storyboard */; };
 		44085EEC1D62AAEE00FA71AA /* ScaleAnimationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44085EEB1D62AAEE00FA71AA /* ScaleAnimationTests.m */; };
 		44085EF71D62AAEE00FA71AA /* ScaleAnimationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44085EF61D62AAEE00FA71AA /* ScaleAnimationUITests.m */; };
+		44085F061D62AB0E00FA71AA /* ScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44085F051D62AB0E00FA71AA /* ScaleView.m */; };
+		44085F081D62ADC100FA71AA /* 004.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44085F071D62ADC100FA71AA /* 004.jpg */; };
+		44085F0B1D62B7AA00FA71AA /* AnimateGroup.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44085F0A1D62B7AA00FA71AA /* AnimateGroup.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,10 @@
 		44085EF21D62AAEE00FA71AA /* ScaleAnimationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScaleAnimationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44085EF61D62AAEE00FA71AA /* ScaleAnimationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScaleAnimationUITests.m; sourceTree = "<group>"; };
 		44085EF81D62AAEE00FA71AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44085F041D62AB0E00FA71AA /* ScaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleView.h; sourceTree = "<group>"; };
+		44085F051D62AB0E00FA71AA /* ScaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaleView.m; sourceTree = "<group>"; };
+		44085F071D62ADC100FA71AA /* 004.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 004.jpg; sourceTree = "<group>"; };
+		44085F0A1D62B7AA00FA71AA /* AnimateGroup.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimateGroup.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +108,9 @@
 		44085ED01D62AAED00FA71AA /* ScaleAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				44085F071D62ADC100FA71AA /* 004.jpg */,
+				44085F041D62AB0E00FA71AA /* ScaleView.h */,
+				44085F051D62AB0E00FA71AA /* ScaleView.m */,
 				44085ED41D62AAED00FA71AA /* AppDelegate.h */,
 				44085ED51D62AAED00FA71AA /* AppDelegate.m */,
 				44085ED71D62AAED00FA71AA /* ViewController.h */,
@@ -117,6 +127,7 @@
 		44085ED11D62AAED00FA71AA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				44085F0A1D62B7AA00FA71AA /* AnimateGroup.gif */,
 				44085ED21D62AAED00FA71AA /* main.m */,
 			);
 			name = "Supporting Files";
@@ -245,7 +256,9 @@
 			files = (
 				44085EE11D62AAEE00FA71AA /* LaunchScreen.storyboard in Resources */,
 				44085EDE1D62AAEE00FA71AA /* Assets.xcassets in Resources */,
+				44085F081D62ADC100FA71AA /* 004.jpg in Resources */,
 				44085EDC1D62AAEE00FA71AA /* Main.storyboard in Resources */,
+				44085F0B1D62B7AA00FA71AA /* AnimateGroup.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44085ED91D62AAED00FA71AA /* ViewController.m in Sources */,
+				44085F061D62AB0E00FA71AA /* ScaleView.m in Sources */,
 				44085ED61D62AAED00FA71AA /* AppDelegate.m in Sources */,
 				44085ED31D62AAED00FA71AA /* main.m in Sources */,
 			);
