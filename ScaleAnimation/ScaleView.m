@@ -8,13 +8,11 @@
 
 #import "ScaleView.h"
 
-static const CGFloat kAnimateTime = 2.0f;
+static const CGFloat kAnimateTime = 1.0f;
 
 @interface ScaleView ()
 
-@property (nonatomic, strong) UIImageView * imageView;
 
-@property (nonatomic, strong) UILabel * msgLabel;
 
 @end
 
@@ -23,106 +21,121 @@ static const CGFloat kAnimateTime = 2.0f;
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        
         [self generateImageView];
         [self generateMsgLabel];
+        
+        [self addTapGestureAtView:self withMethod:@selector(tapAction)];
     }
     return self;
 }
-
+/**
+ *  生成图片
+ */
 - (void)generateImageView {
     
     if (_imageView) {
         return;
     }
-    CGFloat width = 200;
-    CGFloat height = 200;
-    CGFloat yPixel = self.center.y - 200;
+    CGFloat width = 100;
+    CGFloat height = 100;
+    CGFloat yPixel = self.center.y - 100;
     CGFloat xPixel = (self.bounds.size.width - width) * 0.5;
     CGRect imageViewFrame = CGRectMake(xPixel, yPixel, width, height);
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:imageViewFrame];
-    imageView.image = [UIImage imageNamed:@"004.jpg"];
+    
+    UIImage *image = [UIImage imageNamed:@"004.jpg"];
+//    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    
+    imageView.image = image;
+    
     [self addSubview:imageView];
     
     _imageView = imageView;
+    _imageView.transform = CGAffineTransformMakeScale(0.8, 0.8);
+    _imageView.alpha = 0.5;
 }
 
+/**
+ *  生成文字
+ */
 - (void)generateMsgLabel {
     if (_msgLabel) {
         return;
     }
     CGFloat xPixel = 10;
+    CGFloat height = 30;
     CGFloat width = self.bounds.size.width - 2*xPixel;
-    CGFloat yPixel = CGRectGetMaxY(_imageView.frame) + 80;
-    CGRect labelFrame = CGRectMake(xPixel, yPixel, width, 50);
+    CGFloat yPixel = CGRectGetMinY(_imageView.frame) - 10 - height;
+    CGRect labelFrame = CGRectMake(xPixel, yPixel, width, height);
     _msgLabel = [[UILabel alloc] initWithFrame:labelFrame];
-    _msgLabel.text = @"这是一条提示信息/This is a message";
+    _msgLabel.text = @"message";
     _msgLabel.font = [UIFont systemFontOfSize:17.f];
-    _msgLabel.textColor = [UIColor colorWithRed:0.000 green:0.502 blue:1.000 alpha:1.000];
+    _msgLabel.textColor = [UIColor colorWithRed:1.000 green:0.502 blue:0.000 alpha:1.000];
     _msgLabel.textAlignment = NSTextAlignmentCenter;
     _msgLabel.backgroundColor = [UIColor clearColor];
+    
     [self addSubview:_msgLabel];
+    
+    _msgLabel.transform = CGAffineTransformMakeScale(0.8, 0.8);
+    _msgLabel.alpha = 0.5;
 }
 
-- (void)animateWithImageView {
-    /*
-    CABasicAnimation *scaleAnima = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    scaleAnima.toValue = [NSNumber numberWithFloat:1.5f];
+/**
+ *  动画  放大 透明度1
+ *
+ *  @param view
+ */
+- (void)animateMaxWithView:(UIView *)view {
     
-    CABasicAnimation *alphaAnima = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    alphaAnima.toValue = [NSNumber numberWithFloat:0.5f];
-    
-    CAAnimationGroup *groupAnima = [CAAnimationGroup animation];
-    groupAnima.animations = @[scaleAnima,alphaAnima];
-    groupAnima.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    groupAnima.duration = kAnimateTime;
-    
-    [_imageView.layer addAnimation:groupAnima forKey:@"msgLabelAnimate"];
-     */
-    
-    [self animateWithKeyFrameWithView:_imageView];
+    [UIView animateWithDuration:kAnimateTime
+                     animations:^{
+                         view.alpha = 1.0f;
+                         view.transform = CGAffineTransformIdentity;
+                     }];
 }
 
-- (void)animateWithKeyFrameWithView:(UIView *)view {
+/**
+ *  动画 缩小 透明度0.5
+ *
+ *  @param view 操作view
+ */
+- (void)animateMinWithView:(UIView *)view {
     
-    self.transform = CGAffineTransformIdentity;
-    [UIView animateKeyframesWithDuration:kAnimateTime delay:0 options:0 animations: ^{
-        
-        [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:2 / 3.0 animations: ^{
-            //变大
-            view.transform = CGAffineTransformMakeScale(1.5, 1.5);
-        }];
-        
-//        [UIView addKeyframeWithRelativeStartTime:1/3.0 relativeDuration:1/3.0 animations: ^{
-//            //变小
-//            view.transform = CGAffineTransformMakeScale(0.8, 0.8);
-//        }];
-        
-        [UIView addKeyframeWithRelativeStartTime:2/3.0 relativeDuration:1/3.0 animations: ^{
-            //恢复正常
-            view.transform = CGAffineTransformMakeScale(1.0, 1.0);
-        }];
-    } completion:nil];
-}
-
-- (void)animateWithLabel {
-    CABasicAnimation *scaleAnima = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    scaleAnima.fromValue = [NSNumber numberWithFloat:0.5f];
-    scaleAnima.toValue = [NSNumber numberWithFloat:1.0f];
-    
-    CABasicAnimation *alphaAnima = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    alphaAnima.fromValue = [NSNumber numberWithFloat:0.01f];
-    alphaAnima.toValue = [NSNumber numberWithFloat:1.0f];
-    
-    CAAnimationGroup *groupAnima = [CAAnimationGroup animation];
-    groupAnima.animations = @[scaleAnima,alphaAnima];
-    groupAnima.duration = kAnimateTime;
-    
-    [_msgLabel.layer addAnimation:groupAnima forKey:@"msgLabelAnimate"];
+    [UIView animateWithDuration:kAnimateTime
+                     animations:^{
+                         view.alpha = 0.5f;
+                         view.transform = CGAffineTransformMakeScale(0.8, 0.8);;
+                     }];
 }
 
 - (void)animate {
-    [self animateWithLabel];
-    [self animateWithImageView];
+    
+    [self animateMaxWithView:_imageView];
+    [self animateMaxWithView:_msgLabel];
+}
+
+- (void)animateToIdentify {
+    
+    [self animateMinWithView:_imageView];
+    [self animateMinWithView:_msgLabel];
+}
+
+//添加手势
+- (void)addTapGestureAtView:(UIView *)atView withMethod:(SEL)method {
+    
+    UITapGestureRecognizer *tapGuesture = [[UITapGestureRecognizer alloc]
+                                           initWithTarget:self
+                                           action:method];
+    [atView addGestureRecognizer:tapGuesture];
+}
+
+//手势事件
+- (void)tapAction {
+    if (self.TapBlock) {
+        self.TapBlock();
+    }
+    [self animate];
 }
 
 
