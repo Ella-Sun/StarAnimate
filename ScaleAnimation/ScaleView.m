@@ -10,11 +10,9 @@
 
 static const CGFloat kAnimateTime = 1.0f;
 
-@interface ScaleView ()
+static const CGFloat kLabelScale= 0.4;
 
-
-
-@end
+static const CGFloat kImageScale = 0.7;
 
 @implementation ScaleView
 
@@ -25,7 +23,7 @@ static const CGFloat kAnimateTime = 1.0f;
         [self generateMsgLabel];
         [self generateImageView];
         
-        [self addTapGestureAtView:self withMethod:@selector(tapAction)];
+//        [self addTapGestureAtView:self withMethod:@selector(tapAction)];
     }
     return self;
 }
@@ -51,8 +49,8 @@ static const CGFloat kAnimateTime = 1.0f;
     
     [self addSubview:_msgLabel];
     
-    _msgLabel.transform = CGAffineTransformMakeScale(0.8, 0.8);
-    _msgLabel.alpha = 0.01;
+    _msgLabel.transform = CGAffineTransformMakeScale(kLabelScale, kLabelScale);
+    _msgLabel.alpha = 0.5;
 }
 
 /**
@@ -65,20 +63,18 @@ static const CGFloat kAnimateTime = 1.0f;
     }
     CGFloat width = 40;
     CGFloat height = 40;
-    CGFloat yPixel = CGRectGetMaxY(_msgLabel.frame) + 5;
+    CGFloat yPixel = CGRectGetMaxY(_msgLabel.frame) + 7;
     CGFloat xPixel = (self.bounds.size.width - width) * 0.5;
     CGRect imageViewFrame = CGRectMake(xPixel, yPixel, width, height);
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:imageViewFrame];
     
     UIImage *image = [UIImage imageNamed:@"7"];
-    //    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    
     imageView.image = image;
     
     [self addSubview:imageView];
     
     _imageView = imageView;
-    _imageView.transform = CGAffineTransformMakeScale(0.8, 0.8);
+    _imageView.transform = CGAffineTransformMakeScale(kImageScale, kImageScale);
     _imageView.alpha = 0.5;
 }
 
@@ -101,58 +97,43 @@ static const CGFloat kAnimateTime = 1.0f;
  *
  *  @param view 操作view
  */
-- (void)animateMinWithView:(UIView *)view withAlpha:(CGFloat)alpha{
+- (void)animateMinWithView:(UIView *)view withAlpha:(CGFloat)alpha andScale:(CGFloat)scale{
     
     [UIView animateWithDuration:kAnimateTime
                      animations:^{
                          view.alpha = alpha;
-                         view.transform = CGAffineTransformMakeScale(0.8, 0.8);;
+                         view.transform = CGAffineTransformMakeScale(scale, scale);
                      }];
 }
 
 - (void)animate {
-    
+    self.isMax = YES;
     [self animateMaxWithView:_imageView];
     [self animateMaxWithView:_msgLabel];
 }
 
 - (void)animateToIdentify {
-    
-    [self animateMinWithView:_imageView withAlpha:0.5];
-    [self animateMinWithView:_msgLabel withAlpha:0.01];
+    self.isMax = NO;
+    [self animateMinWithView:_imageView withAlpha:0.5 andScale:kImageScale];
+    [self animateMinWithView:_msgLabel withAlpha:0.5 andScale:kLabelScale];
 }
-
-/**
- *  覆写父类触摸
- *
- */
-//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-//    UIView *hitView = [super hitTest:point withEvent:event];
-//    
-//    if (hitView == self) {
-//        [self tapAction];
-//        return nil;
-//    } else {
-//        return hitView;
-//    }
-//}
 
 //添加手势
-- (void)addTapGestureAtView:(UIView *)atView withMethod:(SEL)method {
-    
-    UITapGestureRecognizer *tapGuesture = [[UITapGestureRecognizer alloc]
-                                           initWithTarget:self
-                                           action:method];
-    [atView addGestureRecognizer:tapGuesture];
-}
+//- (void)addTapGestureAtView:(UIView *)atView withMethod:(SEL)method {
+//    
+//    UITapGestureRecognizer *tapGuesture = [[UITapGestureRecognizer alloc]
+//                                           initWithTarget:self
+//                                           action:method];
+//    [atView addGestureRecognizer:tapGuesture];
+//}
 
 //手势事件
-- (void)tapAction {
-    if (self.TapBlock) {
-        self.TapBlock();
-    }
-    [self animate];
-}
+//- (void)tapAction {
+//    if (self.TapBlock) {
+//        self.TapBlock();
+//    }
+//    [self animate];
+//}
 
 
 @end
