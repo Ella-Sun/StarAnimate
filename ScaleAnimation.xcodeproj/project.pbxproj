@@ -17,9 +17,11 @@
 		44085EF71D62AAEE00FA71AA /* ScaleAnimationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44085EF61D62AAEE00FA71AA /* ScaleAnimationUITests.m */; };
 		44085F061D62AB0E00FA71AA /* ScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44085F051D62AB0E00FA71AA /* ScaleView.m */; };
 		44085F0B1D62B7AA00FA71AA /* AnimateGroup.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44085F0A1D62B7AA00FA71AA /* AnimateGroup.gif */; };
-		44085F0E1D62FBED00FA71AA /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44085F0D1D62FBED00FA71AA /* 2.jpg */; };
-		44085F101D63010B00FA71AA /* 004.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44085F0F1D63010B00FA71AA /* 004.jpg */; };
 		44085F161D63093300FA71AA /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 44085F151D63093300FA71AA /* 1.png */; };
+		44085F1E1D631C2000FA71AA /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 44085F1A1D631C2000FA71AA /* 8.png */; };
+		44085F1F1D631C2000FA71AA /* artist.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44085F1B1D631C2000FA71AA /* artist.jpg */; };
+		44085F211D631D0200FA71AA /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 44085F201D631D0200FA71AA /* 7.png */; };
+		44FB03021D63FDAC0025B952 /* SkyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FB03011D63FDAC0025B952 /* SkyView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,9 +61,12 @@
 		44085F041D62AB0E00FA71AA /* ScaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleView.h; sourceTree = "<group>"; };
 		44085F051D62AB0E00FA71AA /* ScaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaleView.m; sourceTree = "<group>"; };
 		44085F0A1D62B7AA00FA71AA /* AnimateGroup.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimateGroup.gif; sourceTree = "<group>"; };
-		44085F0D1D62FBED00FA71AA /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
-		44085F0F1D63010B00FA71AA /* 004.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 004.jpg; sourceTree = "<group>"; };
 		44085F151D63093300FA71AA /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		44085F1A1D631C2000FA71AA /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
+		44085F1B1D631C2000FA71AA /* artist.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = artist.jpg; sourceTree = "<group>"; };
+		44085F201D631D0200FA71AA /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
+		44FB03001D63FDAC0025B952 /* SkyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyView.h; sourceTree = "<group>"; };
+		44FB03011D63FDAC0025B952 /* SkyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,9 +117,12 @@
 		44085ED01D62AAED00FA71AA /* ScaleAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				44085F201D631D0200FA71AA /* 7.png */,
 				44085F151D63093300FA71AA /* 1.png */,
-				44085F0F1D63010B00FA71AA /* 004.jpg */,
-				44085F0D1D62FBED00FA71AA /* 2.jpg */,
+				44085F1A1D631C2000FA71AA /* 8.png */,
+				44085F1B1D631C2000FA71AA /* artist.jpg */,
+				44FB03001D63FDAC0025B952 /* SkyView.h */,
+				44FB03011D63FDAC0025B952 /* SkyView.m */,
 				44085F041D62AB0E00FA71AA /* ScaleView.h */,
 				44085F051D62AB0E00FA71AA /* ScaleView.m */,
 				44085ED41D62AAED00FA71AA /* AppDelegate.h */,
@@ -260,12 +268,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44085F101D63010B00FA71AA /* 004.jpg in Resources */,
-				44085F0E1D62FBED00FA71AA /* 2.jpg in Resources */,
+				44085F1F1D631C2000FA71AA /* artist.jpg in Resources */,
 				44085EE11D62AAEE00FA71AA /* LaunchScreen.storyboard in Resources */,
 				44085EDE1D62AAEE00FA71AA /* Assets.xcassets in Resources */,
 				44085EDC1D62AAEE00FA71AA /* Main.storyboard in Resources */,
 				44085F0B1D62B7AA00FA71AA /* AnimateGroup.gif in Resources */,
+				44085F211D631D0200FA71AA /* 7.png in Resources */,
+				44085F1E1D631C2000FA71AA /* 8.png in Resources */,
 				44085F161D63093300FA71AA /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +304,7 @@
 				44085F061D62AB0E00FA71AA /* ScaleView.m in Sources */,
 				44085ED61D62AAED00FA71AA /* AppDelegate.m in Sources */,
 				44085ED31D62AAED00FA71AA /* main.m in Sources */,
+				44FB03021D63FDAC0025B952 /* SkyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +528,7 @@
 				44085EFD1D62AAEE00FA71AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44085EFE1D62AAEE00FA71AA /* Build configuration list for PBXNativeTarget "ScaleAnimationTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +537,7 @@
 				44085F001D62AAEE00FA71AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44085F011D62AAEE00FA71AA /* Build configuration list for PBXNativeTarget "ScaleAnimationUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +546,7 @@
 				44085F031D62AAEE00FA71AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

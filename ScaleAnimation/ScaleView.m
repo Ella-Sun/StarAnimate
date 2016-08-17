@@ -22,38 +22,12 @@ static const CGFloat kAnimateTime = 1.0f;
     self = [super initWithFrame:frame];
     if (self) {
         
-        [self generateImageView];
         [self generateMsgLabel];
+        [self generateImageView];
         
         [self addTapGestureAtView:self withMethod:@selector(tapAction)];
     }
     return self;
-}
-/**
- *  生成图片
- */
-- (void)generateImageView {
-    
-    if (_imageView) {
-        return;
-    }
-    CGFloat width = 100;
-    CGFloat height = 100;
-    CGFloat yPixel = self.center.y - 100;
-    CGFloat xPixel = (self.bounds.size.width - width) * 0.5;
-    CGRect imageViewFrame = CGRectMake(xPixel, yPixel, width, height);
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:imageViewFrame];
-    
-    UIImage *image = [UIImage imageNamed:@"004.jpg"];
-//    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    
-    imageView.image = image;
-    
-    [self addSubview:imageView];
-    
-    _imageView = imageView;
-    _imageView.transform = CGAffineTransformMakeScale(0.8, 0.8);
-    _imageView.alpha = 0.5;
 }
 
 /**
@@ -63,14 +37,14 @@ static const CGFloat kAnimateTime = 1.0f;
     if (_msgLabel) {
         return;
     }
-    CGFloat xPixel = 10;
-    CGFloat height = 30;
+    CGFloat xPixel = 0;
+    CGFloat yPixel = 0;
+    CGFloat height = 50;
     CGFloat width = self.bounds.size.width - 2*xPixel;
-    CGFloat yPixel = CGRectGetMinY(_imageView.frame) - 10 - height;
     CGRect labelFrame = CGRectMake(xPixel, yPixel, width, height);
     _msgLabel = [[UILabel alloc] initWithFrame:labelFrame];
-    _msgLabel.text = @"message";
-    _msgLabel.font = [UIFont systemFontOfSize:17.f];
+    _msgLabel.text = @"信息统计";
+    _msgLabel.font = [UIFont systemFontOfSize:40.f];
     _msgLabel.textColor = [UIColor colorWithRed:1.000 green:0.502 blue:0.000 alpha:1.000];
     _msgLabel.textAlignment = NSTextAlignmentCenter;
     _msgLabel.backgroundColor = [UIColor clearColor];
@@ -78,7 +52,34 @@ static const CGFloat kAnimateTime = 1.0f;
     [self addSubview:_msgLabel];
     
     _msgLabel.transform = CGAffineTransformMakeScale(0.8, 0.8);
-    _msgLabel.alpha = 0.5;
+    _msgLabel.alpha = 0.01;
+}
+
+/**
+ *  生成图片
+ */
+- (void)generateImageView {
+    
+    if (_imageView) {
+        return;
+    }
+    CGFloat width = 40;
+    CGFloat height = 40;
+    CGFloat yPixel = CGRectGetMaxY(_msgLabel.frame) + 5;
+    CGFloat xPixel = (self.bounds.size.width - width) * 0.5;
+    CGRect imageViewFrame = CGRectMake(xPixel, yPixel, width, height);
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:imageViewFrame];
+    
+    UIImage *image = [UIImage imageNamed:@"7"];
+    //    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    
+    imageView.image = image;
+    
+    [self addSubview:imageView];
+    
+    _imageView = imageView;
+    _imageView.transform = CGAffineTransformMakeScale(0.8, 0.8);
+    _imageView.alpha = 0.5;
 }
 
 /**
@@ -100,11 +101,11 @@ static const CGFloat kAnimateTime = 1.0f;
  *
  *  @param view 操作view
  */
-- (void)animateMinWithView:(UIView *)view {
+- (void)animateMinWithView:(UIView *)view withAlpha:(CGFloat)alpha{
     
     [UIView animateWithDuration:kAnimateTime
                      animations:^{
-                         view.alpha = 0.5f;
+                         view.alpha = alpha;
                          view.transform = CGAffineTransformMakeScale(0.8, 0.8);;
                      }];
 }
@@ -117,9 +118,24 @@ static const CGFloat kAnimateTime = 1.0f;
 
 - (void)animateToIdentify {
     
-    [self animateMinWithView:_imageView];
-    [self animateMinWithView:_msgLabel];
+    [self animateMinWithView:_imageView withAlpha:0.5];
+    [self animateMinWithView:_msgLabel withAlpha:0.01];
 }
+
+/**
+ *  覆写父类触摸
+ *
+ */
+//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+//    UIView *hitView = [super hitTest:point withEvent:event];
+//    
+//    if (hitView == self) {
+//        [self tapAction];
+//        return nil;
+//    } else {
+//        return hitView;
+//    }
+//}
 
 //添加手势
 - (void)addTapGestureAtView:(UIView *)atView withMethod:(SEL)method {
