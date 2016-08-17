@@ -19,7 +19,6 @@
 		44085F0B1D62B7AA00FA71AA /* AnimateGroup.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44085F0A1D62B7AA00FA71AA /* AnimateGroup.gif */; };
 		44085F161D63093300FA71AA /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 44085F151D63093300FA71AA /* 1.png */; };
 		44085F1E1D631C2000FA71AA /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 44085F1A1D631C2000FA71AA /* 8.png */; };
-		44085F1F1D631C2000FA71AA /* artist.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44085F1B1D631C2000FA71AA /* artist.jpg */; };
 		44085F211D631D0200FA71AA /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 44085F201D631D0200FA71AA /* 7.png */; };
 		44FB03021D63FDAC0025B952 /* SkyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FB03011D63FDAC0025B952 /* SkyView.m */; };
 		44FB03041D6435D60025B952 /* SkyView.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44FB03031D6435D60025B952 /* SkyView.gif */; };
@@ -64,7 +63,6 @@
 		44085F0A1D62B7AA00FA71AA /* AnimateGroup.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimateGroup.gif; sourceTree = "<group>"; };
 		44085F151D63093300FA71AA /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		44085F1A1D631C2000FA71AA /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
-		44085F1B1D631C2000FA71AA /* artist.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = artist.jpg; sourceTree = "<group>"; };
 		44085F201D631D0200FA71AA /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
 		44FB03001D63FDAC0025B952 /* SkyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyView.h; sourceTree = "<group>"; };
 		44FB03011D63FDAC0025B952 /* SkyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyView.m; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				44085F201D631D0200FA71AA /* 7.png */,
 				44085F151D63093300FA71AA /* 1.png */,
 				44085F1A1D631C2000FA71AA /* 8.png */,
-				44085F1B1D631C2000FA71AA /* artist.jpg */,
 				44FB03001D63FDAC0025B952 /* SkyView.h */,
 				44FB03011D63FDAC0025B952 /* SkyView.m */,
 				44085F041D62AB0E00FA71AA /* ScaleView.h */,
@@ -271,7 +268,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44085F1F1D631C2000FA71AA /* artist.jpg in Resources */,
 				44FB03041D6435D60025B952 /* SkyView.gif in Resources */,
 				44085EE11D62AAEE00FA71AA /* LaunchScreen.storyboard in Resources */,
 				44085EDE1D62AAEE00FA71AA /* Assets.xcassets in Resources */,

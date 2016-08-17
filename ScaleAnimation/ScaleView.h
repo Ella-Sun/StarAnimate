@@ -12,9 +12,11 @@
 
 @property (nonatomic, assign) BOOL isMax;
 
-@property (nonatomic, strong) UIImageView * imageView;
+//设置显示图片
+@property (nonatomic, strong) UIImage * image;
 
-@property (nonatomic, strong) UILabel * msgLabel;
+//设置文字标题
+@property (nonatomic, strong) NSString * partTitle;
 
 
 //变大 清晰

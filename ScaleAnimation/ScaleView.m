@@ -14,7 +14,25 @@ static const CGFloat kLabelScale= 0.4;
 
 static const CGFloat kImageScale = 0.7;
 
+@interface ScaleView ()
+
+@property (nonatomic, strong) UIImageView * imageView;
+
+@property (nonatomic, strong) UILabel * msgLabel;
+
+@end
+
 @implementation ScaleView
+
+- (void)setImage:(UIImage *)image {
+    _image = image;
+    _imageView.image = image;
+}
+
+- (void)setPartTitle:(NSString *)partTitle {
+    _partTitle = partTitle;
+    _msgLabel.text = partTitle;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
