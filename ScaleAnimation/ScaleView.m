@@ -14,6 +14,8 @@ static const CGFloat kLabelScale= 0.4;
 
 static const CGFloat kImageScale = 0.7;
 
+//static const CGFloat kPercent = 0.6;//文字所占百分比
+
 @interface ScaleView ()
 
 @property (nonatomic, strong) UIImageView * imageView;

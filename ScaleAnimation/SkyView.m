@@ -61,6 +61,8 @@ static const CGFloat kBlurAlpha = 0.7;
     
     CGRect scale1Frame = CGRectMake(100, 200, kWidth, kHeight);
     ScaleView *scaleView1  = [self generateScaleViewWithFrame:scale1Frame];
+    scaleView1.image = [UIImage imageNamed:@"8"];
+    scaleView1.partTitle = @"其他信息";
     scaleView1.tag = 131;
     [self addSubview:scaleView1];
     
